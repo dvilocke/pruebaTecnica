@@ -1,7 +1,7 @@
-from flask import Flask
 import os
+from flask import Flask
 
-ROUTE = "db/users.json"
+ROUTE = "app/db/users.json"
 
 
 def create_app():
@@ -12,6 +12,9 @@ def create_app():
             f.close()
 
     with app.app_context():
-        pass
+
+        from . import auth
+        app.register_blueprint(auth.bp_auth)
+
 
     return app
