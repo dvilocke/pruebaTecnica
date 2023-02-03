@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block type_post %}
+
+<div class="card-deck">
+{% for notice in notices%}
+  <div class="card">
+    <img class="card-img-top" src= "{{notice['urlToImage']}}" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{notice['source']['name']}}</h5>
+      <p class="card-text">{{notice['description']}}</p>
+     <a href="{{notice['url']}}">{{notice['url']}}</a>
+    </div>
+  </div>
+{% endfor %}
+</div>
+{% endblock %}
